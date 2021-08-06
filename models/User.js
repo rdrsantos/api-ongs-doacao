@@ -54,6 +54,38 @@ class User {
       return {status: false, err: 'Usuario não existe'}
     }
   }
+
+  async update(id, name, email){
+    const user = await this.findById(id);
+    if(user){
+      let editUser = {}
+      if(email != undefined){
+        let emailFiltered = email.trim()
+        if(emailFiltered != user.email){
+          const emailExists = await this.findEmail(emailFiltered);
+          if(!emailExists){
+            editUser.email = emailFiltered;
+          }else{
+            return {err: 'Email invalido ou já existe.'};
+          }
+        }else{
+          return {err: 'O email escolhido já esta cadastrado para essa conta.'};
+        }
+      }
+
+      if(name != undefined){
+        editUser.name = name.trim();
+      }
+
+      try {
+        await db('users').update(editUser).where({id});
+        return {status: true}
+      } catch (error) {
+        console.log(error)
+        return {status: false, err: error}
+      }
+    }
+  }
 }
 
 module.exports = new User;

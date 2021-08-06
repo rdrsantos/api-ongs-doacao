@@ -1,4 +1,3 @@
-const { message } = require('statuses');
 const User = require('../models/User');
 class UserController{
   async index(req, res){
@@ -84,6 +83,23 @@ class UserController{
         res.status(406);
         res.json({err: result.err});
       }
+    }
+  }
+
+  async update(req, res){
+    const {id, name, email} = req.body;
+    if(id != undefined){
+      const result = await User.update(id, name, email);
+      if(result.status){
+        res.status(200);
+        res.json({message: 'Usuario atualizado com sucesso'});
+      }else{
+        res.status(500);
+        res.json({err: result.err});
+      }
+    }else{
+      res.status(406);
+      res.json({err: 'Ocorreu um erro no servidor'});
     }
   }
 }
