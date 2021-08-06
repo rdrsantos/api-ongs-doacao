@@ -1,0 +1,16 @@
+{
+  "name": "base-api",
+  "version": "1.0.0",
+  "description": "Api desenvolvida para o gerenciamento de sites com foco em adoção de animais.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodrigo Silva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.9",
+    "mysql2": "^2.3.0"
+  }
+}
