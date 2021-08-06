@@ -39,6 +39,21 @@ class User {
       return undefined;
     }
   }
+
+  async delete(id){
+    const user = await this.findById(id);
+    if(user){
+      try {
+        await db('users').del().where({id});
+        return {status: true, message: 'Usuario deletado com sucesso!'}
+      } catch (error) {
+        console.log(error);
+        return {status: false, err: error}
+      }
+    }else{
+      return {status: false, err: 'Usuario não existe'}
+    }
+  }
 }
 
 module.exports = new User;

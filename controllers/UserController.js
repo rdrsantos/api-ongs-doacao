@@ -1,3 +1,4 @@
+const { message } = require('statuses');
 const User = require('../models/User');
 class UserController{
   async index(req, res){
@@ -63,6 +64,26 @@ class UserController{
       }
     }else{
       res.sendStatus(400);
+    }
+  }
+
+  async delete(req, res){
+    const {id} = req.params;
+
+    if(isNaN(id)){
+      res.sendStatus(400);
+      return;
+    }
+
+    if(id != undefined){
+      const result = await User.delete(id);
+      if(result.status){
+        res.status(200);
+        res.json({message: result.message});
+      }else{
+        res.status(406);
+        res.json({err: result.err});
+      }
     }
   }
 }

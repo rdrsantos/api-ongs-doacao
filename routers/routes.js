@@ -5,5 +5,6 @@ var UserController = require("../controllers/UserController");
 router.get('/api/users', UserController.index);
 router.post('/api/user', UserController.new);
 router.get('/api/user/:id', UserController.findById);
+router.delete('/api/user/:id', UserController.delete);
 
 module.exports = router;
