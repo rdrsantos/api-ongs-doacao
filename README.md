@@ -4,7 +4,7 @@ Api desenvolvida para o gerenciamento de sites com foco em adoção de animais.
 # Documentação 
 
 * [Pegar todos os usuarios](https://github.com/rdrsantos/api-ongs-doacao#pegar-todos-os-usuarios).
-* [Pegar usuario pelo id](https://github.com/rdrsantos/api-ongs-doacaonew#pegar-usuario-pelo-id).
+* [Pegar usuario pelo id](https://github.com/rdrsantos/api-ongs-doacao#pegar-usuario-pelo-id).
 * [Cadastrar um usuario](https://github.com/rdrsantos/api-ongs-doacao#cadastrar-um-usuario).
 
 
