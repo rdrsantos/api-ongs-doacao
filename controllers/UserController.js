@@ -1,4 +1,7 @@
 const User = require('../models/User');
+const path = require('path');
+const {uniqueSuffix} = require('../middlewares/upload');
+
 class UserController{
   async index(req, res){
     try {
@@ -101,6 +104,15 @@ class UserController{
       res.status(406);
       res.json({err: 'Ocorreu um erro no servidor'});
     }
+  }
+
+  async upload(req, res){
+    res.sendFile(path.join(__dirname, '../index.html'));
+  }
+
+  async up(req, res){
+    const {filename: file} = req.file;
+    res.send('upado= '+ file);
   }
 }
 

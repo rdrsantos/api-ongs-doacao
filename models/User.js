@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 class User {
   async all(){
     try {
-      const user = await db('users').select();
+      const user = await db('users').select(['id', 'name', 'email']);
       return user;
     } catch (error) {
       console.log(error);
